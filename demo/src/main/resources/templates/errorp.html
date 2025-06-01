@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invalid Submission</title>
+    <style>
+        body {
+            background-color: #fdf2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #b91c1c;
+        }
+
+        .error-container {
+            text-align: center;
+            background-color: #fff0f0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #dc2626;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #b91c1c;
+        }
+
+        @media (max-width: 500px) {
+            .error-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>Submission Error</h1>
+        <p>The Sub ID you entered does not exist. Please check and try again.</p>
+        <a href="/form-page">Go Back to Form</a>
+    </div>
+
+</body>
+</html>

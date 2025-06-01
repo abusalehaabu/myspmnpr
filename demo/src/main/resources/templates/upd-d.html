@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update User</title>
+</head>
+<body>
+    <h2>Update User Details</h2>
+
+    <form th:action="@{/upd-d}" th:object="${user}" method="post">
+        <label for="id"><strong>ID:</strong></label>
+        <input type="text" th:field="*{id}" id="id" readonly /><br><br>
+
+        <label for="sub"><strong>Subject:</strong></label>
+        <input type="text" th:field="*{sub}" id="sub" required /><br><br>
+
+        <label for="clgn"><strong>College:</strong></label>
+        <input type="text" th:field="*{clgn}" id="clgn" required /><br><br>
+
+        <label for="ppa"><strong>PPA:</strong></label>
+        <input type="text" th:field="*{ppa}" id="ppa" required /><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="/g-u">Back to login Dashboard</a>
+</body>
+</html>

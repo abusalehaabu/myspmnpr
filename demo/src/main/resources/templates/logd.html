@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Post Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #007BFF, #6A11CB);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .logout {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .logout form button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .logout form button:hover {
+      background-color: #c82333;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .btn-group button {
+      flex: 1 1 48%;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      background-color: #007BFF;
+      transition: background-color 0.3s;
+    }
+
+    .btn-group button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 500px) {
+      .btn-group button {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- ✅ Logout Button -->
+    <div class="logout">
+      <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+
+    <h2>Job Post Management</h2>
+
+    <form id="jobForm">
+      <label for="jobTitle">Job Title:</label>
+      <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g. Software Engineer" required>
+
+      <label for="jobDescription">Job Description:</label>
+      <textarea id="jobDescription" name="jobDescription" rows="5" placeholder="Describe the job requirements" required></textarea>
+
+      <!-- Buttons -->
+      <div class="btn-group">
+        <button type="button" onclick="window.location.href='/register'">Go to Register Page</button>
+        <button type="button" onclick="window.location.href='/g-u'">Update Document</button>
+        <button type="button" onclick="window.location.href='/dele-doc'">Delete Document</button>
+        <button type="button" onclick="window.location.href='/g-u'">Get Document</button>
+        <!-- New button added -->
+        <button type="button" onclick="window.location.href='/g-j'">View For Job Post</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

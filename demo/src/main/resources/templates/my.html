@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <ul id="userList"></ul> <!-- This is where the users will be listed -->
+
+    <script>
+        // Fetch all users when the page loads
+        window.onload = function() {
+            fetch('/User/my')  // This will hit your backend API to get all users
+                .then(response => response.json())  // Convert the response to JSON
+                .then(User => {
+                    const userList = document.getElementById('userList');
+                    // Check if users were fetched
+                    if (User && User.length > 0) {
+                        User.forEach(User => {
+                            // Create a list item for each user and append it to the list
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `id:${User.id}Name: ${User.name}, age: 
+${User.age},gender: ${User.gen}`;
+                            userList.appendChild(listItem);
+                        });
+                    } else {
+                        userList.textContent = 'No users found.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching users:', error);  // Handle any errors
+                });
+        }
+    </script>
+</body>
+</html>

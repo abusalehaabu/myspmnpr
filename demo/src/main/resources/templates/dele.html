@@ -1,0 +1,9 @@
+<p><strong class="id">Subject id:</strong> 
+    <span th:text="${document.id}">Subject id</span></p>
+
+<!-- Delete Button -->
+<button class="delete-btn" 
+        th:attr="data-id=${document.id}" 
+        title="Delete">
+    <i class="fas fa-trash-alt"></i>
+</button>

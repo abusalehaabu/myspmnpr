@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+</head>
+<body>
+
+<h1>User Details</h1>
+
+<!-- Check if user exists -->
+<div th:if="${use != null}">
+    <p>username: <span th:text="${use.username}"></span></p>
+    <p>id: <span th:text="${use.id}"></span></p>
+    <p>password: <span th:text="${use.password}"></span></p>
+</div>
+
+<!-- Display error message if user is not found -->
+<div th:if="${use == null}">
+    <p>USER ID IS NOT EXISTS</p>
+</div>
+
+
+</body>
+</html>

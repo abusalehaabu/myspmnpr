@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User by ID</title>
+</head>
+<body>
+
+<h2>Search and Update User</h2>
+
+<!-- Step 1: Search by ID -->
+<form th:action="@{/edit-form}" method="post">
+    <label for="idSearch">Enter User ID:</label>
+    <input type="text" id="idSearch" name="id" required />
+    <button type="submit">Fetch</button>
+</form>
+
+<!-- Display message if any -->
+<p th:if="${message}" th:text="${message}"></p>
+
+<!-- Step 2: Update user fields -->
+<form th:action="@{/update-user}" th:object="${user}" method="post">
+    <label>ID:</label>
+    <input type="text" th:field="*{id}" readonly /><br><br>
+
+    <label>Subject:</label>
+    <input type="text" th:field="*{sub}" /><br><br>
+
+    <label>College:</label>
+    <input type="text" th:field="*{clgn}" /><br><br>
+
+    <label>PPA:</label>
+    <input type="text" th:field="*{ppa}" /><br><br>
+
+    <button type="submit">Update User</button>
+</form>
+
+</body>
+</html>
