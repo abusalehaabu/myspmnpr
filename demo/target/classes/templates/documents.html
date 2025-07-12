@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bangalore City University</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
+        /* Your existing styles remain unchanged */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -129,47 +129,49 @@
 </head>
 <body>
 
-    <h1><i class="fas fa-university"></i> BANGALORE CITY UNIVERSITY</h1>
+<h1><i class="fas fa-university"></i> BANGALORE CITY UNIVERSITY</h1>
 
-    <div class="documents-container">
-        <div th:each="document : ${documents}">
-            <div class="document">
-                <p><strong>Subject ID:</strong>
-                    <span th:text="${document.id}">Subject ID</span>
-                </p>
+<div class="documents-container">
+    <div th:each="document : ${documents}">
+        <div class="document">
+            <p><strong>Subject ID:</strong>
+                <span th:text="${document.id}">Subject ID</span>
+            </p>
 
-                <p><strong class="subject">Subject:</strong>
-                    <span th:text="${document.sub}">Subject</span>
-                </p>
+            <p><strong class="subject">Subject:</strong>
+                <span th:text="${document.sub}">Subject</span>
+            </p>
 
-                <p class="college-block">
-                    <strong>College Name:</strong>
-                    <a th:href="'https://www.google.com/maps?q=' + ${#strings.replace(document.clgn, ' ', '+')}"
-                       target="_blank"
-                       th:text="${document.clgn}">
-                       College Name
-                    </a>
-                </p>
+            <p class="college-block">
+                <strong>College Name:</strong>
+                <a th:href="'https://www.google.com/maps?q=' + ${#strings.replace(document.clgn, ' ', '+')}"
+                   target="_blank"
+                   th:text="${document.clgn}">
+                   College Name
+                </a>
+            </p>
 
-                <p><strong class="package">Package P.A:</strong>
-                    <span th:text="${document.ppa}">Package</span>
-                </p>
+            <p><strong class="package">Package P.A:</strong>
+                <span th:text="${document.ppa}">Package</span>
+            </p>
 
-                <div class="form-link">
-                    <a href="/form-page"><i class="fas fa-pen"></i> Fill Form</a>
-                </div>
+            <div class="form-link">
+                <a th:href="'/form-page?subId=' + ${document.id}">
+                    <i class="fas fa-pen"></i> Fill Form
+                </a>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        (function () {
+<script>
+    (function () {
+        history.pushState(null, null, location.href);
+        window.addEventListener('popstate', function () {
             history.pushState(null, null, location.href);
-            window.addEventListener('popstate', function () {
-                history.pushState(null, null, location.href);
-            });
-        })();
-    </script>
+        });
+    })();
+</script>
 
 </body>
 </html>
