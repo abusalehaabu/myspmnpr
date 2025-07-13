@@ -63,6 +63,17 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        .delete-icon {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-icon:hover {
+            color: darkred;
+        }
     </style>
 </head>
 <body>
@@ -82,7 +93,12 @@
                 <td th:text="${user.i}">Sub ID</td>
                 <td th:text="${user.name}">Name</td>
                 <td th:text="${user.email}">Email</td>
-                <td th:text="${user.quali}">Qualification</td>
+                <td>
+                    <span th:text="${user.quali}">Qualification</span>
+                    <a th:href="@{'/delete-user/' + ${user.i}}" class="delete-icon" title="Delete">
+                        🗑️
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

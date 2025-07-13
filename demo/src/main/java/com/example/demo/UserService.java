@@ -182,6 +182,13 @@ public void log(String username, String rawPassword) {
  public List<appli> getUsersById(String i) {
         return applirepo.findAllByI(i);
     }
+   @Autowired
+private applirepo repo;
+
+public void deleteByI(String i) {
+    repo.deleteByi(i); // This uses your custom ID field
+}
+
     }
 
 

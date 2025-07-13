@@ -392,9 +392,18 @@ String email,
             model.addAttribute("user", user.get());
             return "s-u";
         } else {
-            model.addAttribute("message", "User not found.");
-            return "error";
+            return "noidf"; // Show a "not found" page
         }
+    }
+     @GetMapping("/delete-user/{i}")
+    public String deleteUser(@PathVariable String i, RedirectAttributes redirectAttributes) {
+        try {
+            userService.deleteByI(i);  // use custom ID field
+            redirectAttributes.addFlashAttribute("message", "User deleted successfully.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("message", "Error deleting user.");
+        }
+        return "redirect:/g-j";
     }
 
     // Step 3: Handle update request
